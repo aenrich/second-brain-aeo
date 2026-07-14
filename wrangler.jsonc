@@ -1,0 +1,43 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "second-brain-aeo",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-06-17",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "second-brain-db","database_id": "cc48a6a4-4fc0-43a4-92ac-1c9f34e766cd"
+		}
+	],
+	"vectorize": [
+		{
+			"binding": "VECTORIZE",
+			"index_name": "second-brain-vectors"
+		}
+	],
+	"ai": {
+		"binding": "AI"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "OAUTH_KV","id": "a535732ec9d4438a8595836ce5da68b9"
+		}
+	],
+	"vars": {
+		"VECTORIZE_GRACE_MS": "300000"
+	},
+	"secrets": {
+		"required": ["AUTH_TOKEN"]
+	},
+	"assets": {
+		"directory": "./public"
+	},
+	"triggers": {
+		"crons": [
+			"0 1 * * *"
+		]
+	}
+}
